@@ -1,0 +1,18 @@
+node_modules
+.next
+out
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log
+.vercel
+.turbo
+next-env.d.ts
+
+# Claude Code machine-local tool-permissions cache (not for sharing).
+# `.claude/settings.json` (no `.local`) IS appropriate to commit if/when it exists.
+.claude/settings.local.json
+
+# TypeScript incremental build cache — regenerated automatically.
+tsconfig.tsbuildinfo

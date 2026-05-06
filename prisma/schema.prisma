@@ -1,0 +1,125 @@
+// Project Vitória — Prisma schema.
+//
+// The demo currently runs on the mock catalogue in /lib/products.ts. This schema
+// is the production-ready target: dropping it onto a Supabase Postgres instance
+// (DATABASE_URL points at Supabase's pooler) wires the app to real data without
+// rewriting the component layer — the types in /lib/types.ts mirror these models.
+//
+// Run:
+//   npx prisma generate         # generate the Prisma client
+//   npx prisma migrate dev      # create the database tables
+//
+// Walk-through note for the pitch: even though the demo uses mock data, this
+// file proves the storefront is architected to graduate to a real backend.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Category {
+  hoodies
+  tees
+  outerwear
+  bottoms
+  accessories
+}
+
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
+}
+
+model Product {
+  id               String    @id @default(cuid())
+  slug             String    @unique
+  name             String
+  tagline          String
+  description      String
+  longDescription  String    @db.Text
+  priceCents       Int
+  compareAtCents   Int?
+  category         Category
+  isLatestDrop     Boolean   @default(false)
+  isNew            Boolean   @default(false)
+
+  // Relations
+  images           ProductImage[]
+  variants         Variant[]
+  reviews          Review[]
+  specs            ProductSpecs?
+
+  // Self-referential many-to-many for "Complete the look" cross-sell.
+  // Two implicit relations because Prisma needs both sides of the link table.
+  related          Product[] @relation("ProductCrossSell")
+  relatedFor       Product[] @relation("ProductCrossSell")
+
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([category])
+  @@index([isLatestDrop])
+}
+
+model ProductImage {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url         String
+  alt         String
+  sortOrder   Int      @default(0)
+
+  @@index([productId])
+}
+
+model Variant {
+  id         String   @id @default(cuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  size       Size
+  color      String
+  colorHex   String
+  stock      Int      @default(0)
+  sku        String   @unique
+
+  @@unique([productId, size, color])
+  @@index([productId])
+}
+
+// One-to-one with Product. Split out as its own model so adding/removing
+// spec fields doesn't require migrating Product itself.
+model ProductSpecs {
+  id                String  @id @default(cuid())
+  productId         String  @unique
+  product           Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  gsm               Int     @default(0)
+  fabric            String
+  fit               String
+  madeIn            String
+  modelInfo         String
+  careInstructions  String
+}
+
+model Review {
+  id              String   @id @default(cuid())
+  productId       String
+  product         Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  author          String
+  rating          Int      // 1-5; enforced at the app layer
+  title           String
+  body            String   @db.Text
+  photoUrl        String?
+  verifiedBuyer   Boolean  @default(false)
+  createdAt       DateTime @default(now())
+
+  @@index([productId])
+  @@index([rating])
+}

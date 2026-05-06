@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------------------------------------------------------
+ * Project Vitória — global styles.
+ *
+ * The app is dark-by-default by design (matches the streetwear aesthetic the
+ * client cares about). We do not flip on `prefers-color-scheme` — the brand
+ * voice is the dark palette, full stop.
+ * ---------------------------------------------------------------------------*/
+
+:root {
+  --bg: #0b0908;
+  --fg: #f5f2ec;
+  --accent: #6e1a24;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+/* Editorial display headings get tighter optical sizing. */
+.font-display {
+  font-optical-sizing: auto;
+}
+
+/* Custom scrollbar — dark palette, but only on overflow scrollers we opt in. */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+
+/* Hide scrollbar on horizontal scroll sections (lookbook, marquee). */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+/* Selection color — burgundy accent on bone text reads premium. */
+::selection {
+  background-color: var(--accent);
+  color: var(--fg);
+}
+
+/* Focus ring — clear, accessible, not stylistically clashing with the dark UI. */
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
