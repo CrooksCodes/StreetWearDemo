@@ -24,6 +24,13 @@ const SHOP_LINKS = [
   { label: 'Outerwear', href: '/shop?category=outerwear' },
 ] as const;
 
+const EXPLORE_LINKS = [
+  { label: 'Archive', href: '/archive' },
+  { label: 'Journal', href: '/journal' },
+  { label: 'About', href: '/about' },
+  { label: 'Lookbook', href: '/lookbook' },
+] as const;
+
 const SUPPORT_LINKS = [
   { label: 'Shipping & Returns', href: '/shipping' },
   { label: 'Size Guide', href: '/size-guide' },
@@ -41,11 +48,24 @@ export function Footer() {
           Heavyweight, garment-dyed streetwear in limited drops. Made in Portugal.
         </p>
 
-        <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-5">
           <div>
             <p className="mb-4 text-xs uppercase tracking-widest text-bone-muted">Shop</p>
             <ul className="space-y-2 text-sm">
               {SHOP_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-bone-muted">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-4 text-xs uppercase tracking-widest text-bone-muted">Explore</p>
+            <ul className="space-y-2 text-sm">
+              {EXPLORE_LINKS.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="hover:text-bone-muted">
                     {l.label}
