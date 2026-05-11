@@ -14,7 +14,10 @@ import { cn } from '@/lib/utils';
  */
 const NAV = [
   { label: 'Shop', href: '/shop' },
+  { label: 'Archive', href: '/archive' },
+  { label: 'Journal', href: '/journal' },
   { label: 'Lookbook', href: '/lookbook' },
+  { label: 'About', href: '/about' },
 ] as const;
 
 export function Header() {

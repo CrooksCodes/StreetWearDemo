@@ -5,6 +5,7 @@ import { LookbookScroll } from '@/components/sections/LookbookScroll';
 import { Story } from '@/components/sections/Story';
 import { PressMarquee } from '@/components/sections/PressMarquee';
 import { UGCGrid } from '@/components/sections/UGCGrid';
+import { DropTeaser } from '@/components/sections/DropTeaser';
 import { EmailCapture } from '@/components/sections/EmailCapture';
 
 /**
@@ -34,6 +35,7 @@ export default function HomePage() {
       <PressMarquee />
       <Story />
       <UGCGrid />
+      <DropTeaser />
       <EmailCapture />
     </>
   );

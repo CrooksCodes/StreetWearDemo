@@ -1,4 +1,4 @@
-import type { Product } from './types';
+import type { Product, Chapter } from './types';
 
 /**
  * Mock product catalogue.
@@ -449,8 +449,174 @@ export const products: Product[] = [
   },
 ];
 
+// ---------------------------------------------------------------------------
+// Chapters — Vitória's seasonal drops, oldest to newest.
+// ---------------------------------------------------------------------------
+export const chapters: Chapter[] = [
+  {
+    id: 'ch_01',
+    index: 1,
+    name: 'Made with Love',
+    dateRange: 'Fall 2024',
+    description:
+      'The first chapter. Two tees, a hoodie, and a belief that heavyweight fabric speaks louder than branding.',
+  },
+  {
+    id: 'ch_02',
+    index: 2,
+    name: 'WazzaXTiti',
+    dateRange: 'Winter 2024–25',
+    description:
+      'A collaboration capsule merging Vitória\'s fabric programme with Wazza & Titi\'s graphic language.',
+  },
+  {
+    id: 'ch_03',
+    index: 3,
+    name: 'Saint Vitoria',
+    dateRange: 'Summer 2025',
+    description:
+      'Patron saints, racing stripes, and the heaviest zip-up we\'ve cut. Every piece sold out in 72 hours.',
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Archived products — past-chapter items, all stock at 0.
+// ---------------------------------------------------------------------------
+export const archivedProducts: Product[] = [
+  {
+    id: 'p_a01',
+    slug: 'vitoria-nmu-tee-bone',
+    name: 'NM4U Tee',
+    tagline: 'Bone — 280 GSM, Chapter 01',
+    priceCents: 8800,
+    category: 'tees',
+    description: 'The first tee Vitória ever cut. Oversized body, no labels, just weight.',
+    longDescription: '',
+    images: [img('photo-1521572163474-6864f9cf17ab', 'NM4U Tee bone front')],
+    variants: [
+      { id: 'v_a01_m', size: 'M', color: 'Bone', colorHex: '#F5F2EC', stock: 0, sku: 'VIT-NMU-BNE-M' },
+    ],
+    specs: { gsm: 280, fabric: '100% ringspun cotton', fit: 'Oversized', madeIn: 'Portugal', modelInfo: '', careInstructions: 'Wash cold.' },
+    reviews: [],
+    isLatestDrop: false,
+    isNew: false,
+    relatedSlugs: [],
+    chapter: 'ch_01',
+    isArchived: true,
+  },
+  {
+    id: 'p_a02',
+    slug: 'vitoria-first-kiss-tee-onyx',
+    name: 'First Kiss Tee',
+    tagline: 'Onyx — 280 GSM, Chapter 01',
+    priceCents: 8800,
+    category: 'tees',
+    description: 'Back-print graphic tee. Garment-dyed onyx, faded by design.',
+    longDescription: '',
+    images: [img('photo-1583744946564-b52ac1c389c8', 'First Kiss Tee onyx front')],
+    variants: [
+      { id: 'v_a02_m', size: 'M', color: 'Onyx', colorHex: '#1A1A1A', stock: 0, sku: 'VIT-FK-ONX-M' },
+    ],
+    specs: { gsm: 280, fabric: '100% ringspun cotton, garment-dyed', fit: 'Oversized', madeIn: 'Portugal', modelInfo: '', careInstructions: 'Wash cold inside out.' },
+    reviews: [],
+    isLatestDrop: false,
+    isNew: false,
+    relatedSlugs: [],
+    chapter: 'ch_01',
+    isArchived: true,
+  },
+  {
+    id: 'p_a03',
+    slug: 'vitoria-ferrari-tee-red',
+    name: 'Ferrari Tee',
+    tagline: 'Rosso Corsa — 280 GSM, Chapter 02',
+    priceCents: 9800,
+    category: 'tees',
+    description: 'WazzaXTiti collab. Racing-stripe chest hit on a garment-dyed red body.',
+    longDescription: '',
+    images: [img('photo-1583743814966-8936f5b7be1a', 'Ferrari Tee red front')],
+    variants: [
+      { id: 'v_a03_m', size: 'M', color: 'Rosso Corsa', colorHex: '#C1292E', stock: 0, sku: 'VIT-FER-RED-M' },
+    ],
+    specs: { gsm: 280, fabric: '100% ringspun cotton, garment-dyed', fit: 'Boxy', madeIn: 'Portugal', modelInfo: '', careInstructions: 'Wash cold inside out.' },
+    reviews: [],
+    isLatestDrop: false,
+    isNew: false,
+    relatedSlugs: [],
+    chapter: 'ch_02',
+    isArchived: true,
+  },
+  {
+    id: 'p_a04',
+    slug: 'vitoria-marlboro-tee-bone',
+    name: 'Marlboro Tee',
+    tagline: 'Bone — 280 GSM, Chapter 02',
+    priceCents: 9800,
+    category: 'tees',
+    description: 'WazzaXTiti collab. Vintage motorsport typography on heavyweight bone cotton.',
+    longDescription: '',
+    images: [img('photo-1581655353564-df123a1eb820', 'Marlboro Tee bone front')],
+    variants: [
+      { id: 'v_a04_m', size: 'M', color: 'Bone', colorHex: '#F5F2EC', stock: 0, sku: 'VIT-MRL-BNE-M' },
+    ],
+    specs: { gsm: 280, fabric: '100% ringspun cotton', fit: 'Boxy', madeIn: 'Portugal', modelInfo: '', careInstructions: 'Wash cold.' },
+    reviews: [],
+    isLatestDrop: false,
+    isNew: false,
+    relatedSlugs: [],
+    chapter: 'ch_02',
+    isArchived: true,
+  },
+  {
+    id: 'p_a05',
+    slug: 'vitoria-thierry-henry-zip-up',
+    name: 'Thierry Henry Zip-Up',
+    tagline: 'Onyx — 500 GSM, Chapter 03',
+    priceCents: 32800,
+    category: 'hoodies',
+    description: 'Full-zip heavyweight in onyx with embroidered crest. The heaviest zip-up we\'ve made.',
+    longDescription: '',
+    images: [img('photo-1556821840-3a63f95609a7', 'Thierry Henry Zip-Up front')],
+    variants: [
+      { id: 'v_a05_m', size: 'M', color: 'Onyx', colorHex: '#1A1A1A', stock: 0, sku: 'VIT-THZ-ONX-M' },
+    ],
+    specs: { gsm: 500, fabric: '100% cotton French terry, YKK Excella zipper', fit: 'Oversized', madeIn: 'Portugal', modelInfo: '', careInstructions: 'Wash cold zipped, inside out.' },
+    reviews: [],
+    isLatestDrop: false,
+    isNew: false,
+    relatedSlugs: [],
+    chapter: 'ch_03',
+    isArchived: true,
+  },
+  {
+    id: 'p_a06',
+    slug: 'vitoria-blackcloud-hoodie',
+    name: 'BlackCloud Hoodie',
+    tagline: 'Storm — 500 GSM, Chapter 03',
+    priceCents: 26800,
+    category: 'hoodies',
+    description: 'Pullover heavyweight in storm grey. All-over tonal cloud embroidery on the back panel.',
+    longDescription: '',
+    images: [img('photo-1614975059251-992f11792b9f', 'BlackCloud Hoodie front')],
+    variants: [
+      { id: 'v_a06_m', size: 'M', color: 'Storm', colorHex: '#4A4A4A', stock: 0, sku: 'VIT-BLC-STM-M' },
+    ],
+    specs: { gsm: 500, fabric: '100% cotton French terry, tonal embroidery', fit: 'Oversized', madeIn: 'Portugal', modelInfo: '', careInstructions: 'Wash cold inside out.' },
+    reviews: [],
+    isLatestDrop: false,
+    isNew: false,
+    relatedSlugs: [],
+    chapter: 'ch_03',
+    isArchived: true,
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
 export function getProductBySlug(slug: string): Product | undefined {
-  return products.find((p) => p.slug === slug);
+  return [...products, ...archivedProducts].find((p) => p.slug === slug);
 }
 
 export function getRelatedProducts(slugs: string[]): Product[] {
@@ -461,4 +627,19 @@ export function getRelatedProducts(slugs: string[]): Product[] {
 
 export function getLatestDrop(): Product[] {
   return products.filter((p) => p.isLatestDrop);
+}
+
+/** Active (non-archived) products — what the /shop page shows. */
+export function getActiveProducts(): Product[] {
+  return products.filter((p) => !p.isArchived);
+}
+
+/** All chapters in order. */
+export function getChapters(): Chapter[] {
+  return chapters;
+}
+
+/** Archived products belonging to a specific chapter. */
+export function getProductsByChapter(chapterId: string): Product[] {
+  return archivedProducts.filter((p) => p.chapter === chapterId);
 }

@@ -78,6 +78,51 @@ export interface Product {
   isNew: boolean;
   /** Cross-sell — slugs of products to show in "Complete the look". */
   relatedSlugs: string[];
+  /** Chapter ID this product belongs to — used by the archive. */
+  chapter?: string;
+  /** True for sold-out past-drop items shown only in the archive, not the shop. */
+  isArchived?: boolean;
+}
+
+/**
+ * A "chapter" is Vitória's term for a seasonal drop.
+ * Each chapter is a curated set of products with its own editorial identity.
+ */
+export interface Chapter {
+  id: string;
+  index: number;
+  name: string;
+  dateRange: string;
+  description: string;
+}
+
+/**
+ * Journal article categories — maps to editorial content pillars.
+ */
+export type ArticleCategory = 'Process' | 'Culture' | 'Material' | 'Design';
+
+export interface Article {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: ArticleCategory;
+  heroImage: ProductImage;
+  readTime: number;
+  publishedAt: string;
+  isFeatured?: boolean;
+}
+
+/**
+ * Upcoming drop data for countdown/reveal mechanic.
+ */
+export interface UpcomingDrop {
+  id: string;
+  name: string;
+  tagline: string;
+  dropDate: string;
+  teaserImages: ProductImage[];
+  teaserCopy: string;
 }
 
 /**
