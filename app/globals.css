@@ -56,7 +56,7 @@ body {
   border-radius: 2px;
 }
 
-/* Hide scrollbar on horizontal scroll sections (lookbook). */
+/* Hide scrollbar on horizontal scroll sections (lookbook, marquee). */
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
