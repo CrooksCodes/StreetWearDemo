@@ -60,17 +60,11 @@ const config: Config = {
       },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out forwards',
-        // Hero scroll cue — a filled segment travelling down a hairline track.
-        'scroll-cue': 'scroll-cue 2s cubic-bezier(0.65, 0, 0.35, 1) infinite',
       },
       keyframes: {
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        'scroll-cue': {
-          '0%': { transform: 'translateY(-100%)' },
-          '60%, 100%': { transform: 'translateY(250%)' },
         },
       },
     },

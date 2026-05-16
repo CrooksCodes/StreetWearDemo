@@ -67,15 +67,6 @@ export function Hero() {
           </div>
         </Reveal>
       </Container>
-
-      {/* Scroll cue — a filled segment running down a hairline track. Desktop
-          only; on touch the scroll affordance is already obvious. */}
-      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex">
-        <span className="text-[10px] uppercase tracking-widest text-bone-muted">Scroll</span>
-        <span className="relative block h-10 w-px overflow-hidden bg-bone/15">
-          <span className="absolute inset-x-0 top-0 block h-1/2 bg-bone animate-scroll-cue" />
-        </span>
-      </div>
     </section>
   );
 }
