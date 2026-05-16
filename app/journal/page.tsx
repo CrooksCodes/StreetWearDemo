@@ -14,7 +14,7 @@ import { Container } from '@/components/ui/Container';
 export const metadata: Metadata = {
   title: 'Journal',
   description:
-    'Stories behind the fabric, the factory, and the philosophy. The Vitória Journal — materials, process, and culture.',
+    'Stories behind the fabric, the factory, and the philosophy. The Journal — materials, process, and culture.',
   alternates: { canonical: '/journal' },
 };
 

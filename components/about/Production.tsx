@@ -25,7 +25,7 @@ export function Production() {
         <div className="relative aspect-[3/4] overflow-hidden bg-ink-50">
           <motion.div style={{ y }} className="absolute inset-x-0 top-[-15%] bottom-[-15%]">
             <Image
-              src="https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&w=1600&q=85"
+              src="https://images.unsplash.com/photo-1649114383220-c4f0f0dbafbe?auto=format&fit=crop&w=1600&q=85"
               alt="Portuguese textile mill — weaving looms and cotton rolls"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
@@ -44,7 +44,7 @@ export function Production() {
           </h2>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-bone-muted">
             <p>
-              Every Vitória garment is cut and sewn in a third-generation family mill outside
+              Every garment is cut and sewn in a third-generation family mill outside
               Porto. Forty employees, no fast-fashion clients, no minimum order pressure.
             </p>
             <p>

@@ -72,7 +72,7 @@ export const useCart = create<CartState>()(
       toggleDrawer: () => set((state) => ({ isOpen: !state.isOpen })),
     }),
     {
-      name: 'vitoria-cart',
+      name: 'cart',
       storage: createJSONStorage(() => localStorage),
       // Only persist the cart contents — drawer open/close is ephemeral UI state.
       partialize: (state) => ({ lines: state.lines }) as Partial<CartState>,

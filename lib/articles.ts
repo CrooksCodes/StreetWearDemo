@@ -21,7 +21,7 @@ export const articles: Article[] = [
     excerpt:
       'Most hoodies are 280–320 GSM. We start at 420 and peak at 500. Here\'s what happens when you double the weight of a French terry — and why it changes how the garment moves, drapes, and ages.',
     category: 'Material',
-    heroImage: heroImg('photo-1620799140408-edc6dcb6d633', 'Close-up of heavyweight 500 GSM French terry fabric texture'),
+    heroImage: heroImg('photo-1558452919-08ae4aea8e29', 'Close-up of heavyweight 500 GSM French terry fabric texture'),
     readTime: 7,
     publishedAt: '2026-04-15',
     isFeatured: true,
@@ -33,7 +33,7 @@ export const articles: Article[] = [
     excerpt:
       'A week inside the mill that cuts our fabric. Third-generation family operation, 40 employees, zero fast-fashion clients. We walked the floor and documented every step from raw cotton bale to finished bolt.',
     category: 'Process',
-    heroImage: heroImg('photo-1558618666-fcd25c85f82e', 'Portuguese textile factory interior with fabric rolls'),
+    heroImage: heroImg('photo-1561122156-fe23366e47d3', 'Portuguese textile factory interior with fabric rolls'),
     readTime: 9,
     publishedAt: '2026-03-28',
   },
@@ -44,7 +44,7 @@ export const articles: Article[] = [
     excerpt:
       'Garment dyeing means the piece is sewn first, then dyed as a finished garment. The seams absorb colour differently than the body — which is exactly the point. Every piece becomes one of one.',
     category: 'Material',
-    heroImage: heroImg('photo-1558171813-4c088753af8f', 'Garment dyeing vats in textile workshop'),
+    heroImage: heroImg('photo-1587701712213-826b561028f7', 'Garment dyeing vats in textile workshop'),
     readTime: 5,
     publishedAt: '2026-03-10',
   },
@@ -55,7 +55,7 @@ export const articles: Article[] = [
     excerpt:
       'Seasonal collections assume a brand will always exist in the same form. Chapters assume the brand is a story — with a beginning, a middle, and eventually an end. Here\'s why we chose the second model.',
     category: 'Culture',
-    heroImage: heroImg('photo-1583744946564-b52ac1c389c8', 'Editorial portrait of founder in Vitória hoodie'),
+    heroImage: heroImg('photo-1611075760601-7c8d0bb90b6d', 'Editorial portrait of founder in a heavyweight hoodie'),
     readTime: 6,
     publishedAt: '2026-02-20',
   },

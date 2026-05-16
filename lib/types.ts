@@ -1,5 +1,5 @@
 /**
- * Domain types for Project Vitória.
+ * Domain types for the clothing brand demo.
  *
  * These types describe the storefront's data model. They mirror the Prisma schema
  * in /prisma/schema.prisma — when we wire the demo to Supabase, these stay
@@ -85,7 +85,7 @@ export interface Product {
 }
 
 /**
- * A "chapter" is Vitória's term for a seasonal drop.
+ * A "chapter" is the label's term for a seasonal drop.
  * Each chapter is a curated set of products with its own editorial identity.
  */
 export interface Chapter {

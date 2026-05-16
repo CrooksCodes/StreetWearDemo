@@ -7,6 +7,7 @@ import { PressMarquee } from '@/components/sections/PressMarquee';
 import { UGCGrid } from '@/components/sections/UGCGrid';
 import { DropTeaser } from '@/components/sections/DropTeaser';
 import { EmailCapture } from '@/components/sections/EmailCapture';
+import { Reveal } from '@/components/ui/Reveal';
 
 /**
  * Homepage.
@@ -22,21 +23,32 @@ import { EmailCapture } from '@/components/sections/EmailCapture';
 export const metadata: Metadata = {
   title: 'Heavyweight Streetwear · Drop 04',
   description:
-    'Vitória — heavyweight, garment-dyed streetwear in limited drops. Made in Portugal. Shop the Spring 2026 chapter.',
+    'Heavyweight, garment-dyed streetwear in limited drops. Made in Portugal. Shop the Spring 2026 chapter.',
   alternates: { canonical: '/' },
 };
 
 export default function HomePage() {
   return (
     <>
+      {/* Hero animates on load; LatestDrop / LookbookScroll / UGCGrid run their
+          own staggered child reveals. The remaining sections get a single quiet
+          fade-up as they scroll into view. */}
       <Hero />
       <LatestDrop />
       <LookbookScroll />
-      <PressMarquee />
-      <Story />
+      <Reveal>
+        <PressMarquee />
+      </Reveal>
+      <Reveal>
+        <Story />
+      </Reveal>
       <UGCGrid />
-      <DropTeaser />
-      <EmailCapture />
+      <Reveal>
+        <DropTeaser />
+      </Reveal>
+      <Reveal>
+        <EmailCapture />
+      </Reveal>
     </>
   );
 }

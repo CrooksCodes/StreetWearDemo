@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
  *  - ghost: no border, used inline (e.g., remove from cart)
  *
  * Sizing aligns with the editorial tracking — the wide letterspacing is a
- * Vitória brand cue and matches the typographic system in tailwind.config.ts.
+ * the brand cue and matches the typographic system in tailwind.config.ts.
  */
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -42,7 +42,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(function Button(
     <button
       ref={ref}
       className={cn(
-        'inline-flex items-center justify-center font-sans font-medium uppercase tracking-widest',
+        'inline-flex items-center justify-center font-sans font-bold uppercase tracking-widest',
         'transition-colors duration-200 disabled:cursor-not-allowed',
         variantClasses[variant],
         sizeClasses[size],

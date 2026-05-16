@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { AboutHero } from '@/components/about/AboutHero';
 import { Manifesto } from '@/components/about/Manifesto';
+import { Atelier } from '@/components/about/Atelier';
 import { Timeline } from '@/components/about/Timeline';
 import { Production } from '@/components/about/Production';
 import { Values } from '@/components/about/Values';
@@ -15,7 +16,7 @@ import { Values } from '@/components/about/Values';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'The Vitória story — heavyweight streetwear in limited chapters, made in Portugal. Our manifesto, our timeline, our values.',
+    'Our story — heavyweight streetwear in limited chapters, made in Portugal. Our manifesto, our timeline, our values.',
   alternates: { canonical: '/about' },
 };
 
@@ -24,6 +25,7 @@ export default function AboutPage() {
     <>
       <AboutHero />
       <Manifesto />
+      <Atelier />
       <Timeline />
       <Production />
       <Values />

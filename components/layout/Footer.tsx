@@ -3,10 +3,10 @@ import { Container } from '@/components/ui/Container';
 import { FooterNewsletterForm } from './FooterNewsletterForm';
 
 /**
- * Footer — Vitória brand footer.
+ * Footer — brand footer.
  *
  * NOTE FOR THE PITCH: every social link below is wired to a real URL with
- * proper rel/target attributes. The current Vitória Shopify site ships with
+ * proper rel/target attributes. The current Shopify site ships with
  * the default theme's broken placeholder social links — pointing this out
  * is part of the value Jeremy is selling.
  */
@@ -43,7 +43,7 @@ export function Footer() {
     <footer className="mt-32 border-t border-bone/10 bg-ink py-16 text-bone">
       <Container width="wide">
         {/* Oversized brand mark — sets editorial tone before the link grid. */}
-        <p className="font-display text-display-2 leading-none tracking-widest">VITÓRIA</p>
+        <p className="font-display text-display-2 leading-none tracking-widest">THE LABEL</p>
         <p className="mt-4 max-w-md text-sm text-bone-muted">
           Heavyweight, garment-dyed streetwear in limited drops. Made in Portugal.
         </p>
@@ -114,7 +114,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-bone/10 pt-8 text-xs text-bone-dim md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Vitória. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} The Label. All rights reserved.</p>
           <p className="uppercase tracking-widest">
             Site by{' '}
             <a

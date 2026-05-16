@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://projectvitoria.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thelabel.example.com';
 
 /**
  * Robots policy served at /robots.txt.

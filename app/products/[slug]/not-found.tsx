@@ -9,7 +9,7 @@ export default function ProductNotFound() {
         This piece is no longer available.
       </h1>
       <p className="mt-4 max-w-md text-sm text-bone-muted">
-        Vitória chapters are limited. When something sells through, it doesn't return.
+        Our chapters are limited. When something sells through, it doesn't return.
       </p>
       <Link
         href="/shop"

@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 /**
- * Design system for Project Vitória.
+ * Design system for the clothing brand demo.
  *
  * Aesthetic targets: Fear of God, Aimé Leon Dore, Represent, Essentials.
  * Dark-by-default, off-white type, single accent (deep burgundy) used sparingly
@@ -37,16 +37,23 @@ const config: Config = {
         },
       },
       fontFamily: {
+        // Archivo carries the display weight — a tight grotesque, not a serif.
         sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
-        display: ['var(--font-fraunces)', 'ui-serif', 'Georgia'],
+        display: ['var(--font-archivo)', 'ui-sans-serif', 'system-ui'],
+      },
+      fontWeight: {
+        // Display headings render black by default — see .font-display in
+        // globals.css. Kept here so utilities like `font-display-black` read
+        // intentionally at call sites.
+        'display-black': '900',
       },
       fontSize: {
-        // Editorial display sizes — homepage hero needs to feel oversized
-        // Capped at 8rem (was 11rem) so a 4-line oversized stack fits inside
-        // a typical viewport height without clipping at the top.
-        'display-1': ['clamp(3rem, 10vw, 8rem)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],
-        'display-2': ['clamp(2.5rem, 8vw, 6rem)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],
-        'display-3': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1', letterSpacing: '-0.01em' }],
+        // Streetwear display sizes — homepage hero needs to feel oversized
+        // and poster-heavy. Tracking is pulled tighter than editorial defaults
+        // so the heavy grotesque reads as one solid block.
+        'display-1': ['clamp(3rem, 10vw, 8rem)', { lineHeight: '0.92', letterSpacing: '-0.03em' }],
+        'display-2': ['clamp(2.5rem, 8vw, 6rem)', { lineHeight: '0.92', letterSpacing: '-0.03em' }],
+        'display-3': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '0.96', letterSpacing: '-0.02em' }],
       },
       letterSpacing: {
         widest: '0.2em',
@@ -54,6 +61,8 @@ const config: Config = {
       animation: {
         marquee: 'marquee 40s linear infinite',
         'fade-up': 'fade-up 0.6s ease-out forwards',
+        // Hero scroll cue — a filled segment travelling down a hairline track.
+        'scroll-cue': 'scroll-cue 2s cubic-bezier(0.65, 0, 0.35, 1) infinite',
       },
       keyframes: {
         marquee: {
@@ -63,6 +72,10 @@ const config: Config = {
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'scroll-cue': {
+          '0%': { transform: 'translateY(-100%)' },
+          '60%, 100%': { transform: 'translateY(250%)' },
         },
       },
     },

@@ -1,4 +1,4 @@
-# Project Vitória — Storefront Demo
+# Clothing Brand — Storefront Demo
 
 A demo e-commerce storefront built to pitch a properly engineered alternative to a default Shopify theme.
 
@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | --- | --- |
 | `/` | Full-bleed hero, latest-drop featured grid (with hover image swap and quick-add), editorial scroll, parallax brand story, press marquee, UGC grid, newsletter capture, footer with **working** social links. |
 | `/shop` | Filterable collection grid (size, color, category, price), sort dropdown, NEW / LOW STOCK / SOLD OUT badges, quick-view modal triggered from cards. |
-| `/products/vitoria-mockneck-hoodie-onyx` | PDP — image gallery with click-to-zoom, sticky mobile add-to-cart, color/size selector with size-guide modal, review section with verified-buyer badges and photos, "Complete the Look" cross-sell, accordion for materials/shipping. |
+| `/products/heavyweight-hoodie-onyx` | PDP — image gallery with click-to-zoom, sticky mobile add-to-cart, color/size selector with size-guide modal, review section with verified-buyer badges and photos, "Complete the Look" cross-sell, accordion for materials/shipping. |
 | `/lookbook` | Magazine-style editorial layout. Shoppable hotspots — click any pin in a spread to open quick-view for that piece. |
 | `/sitemap.xml` | Auto-generated from the product catalogue. |
 | `/robots.txt` | Auto-generated. |
@@ -112,7 +112,7 @@ This is a major selling point of the build. Each item below is verifiable in the
 - **`sitemap.ts` and `robots.ts`** — auto-generated. The sitemap walks the live product catalogue, so adding a product in Supabase later automatically adds it to the sitemap on the next build.
 - **`generateStaticParams` on PDPs** — every product page is prerendered at build time. Crawlers get hydrated HTML on the first request.
 - **Descriptive `alt` text** on every `<Image>` — sourced from the data layer, never duplicated.
-- **`next/font`** — Inter and Fraunces are self-hosted at build time, eliminating round-trips to fonts.gstatic.com (zero CLS, faster LCP).
+- **`next/font`** — Inter and Archivo are self-hosted at build time, eliminating round-trips to fonts.gstatic.com (zero CLS, faster LCP).
 
 Lighthouse target: 95+ on Performance / Accessibility / SEO.
 
