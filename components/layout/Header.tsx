@@ -25,6 +25,14 @@ export function Header() {
   const openDrawer = useCart((s) => s.openDrawer);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // The cart count comes from a localStorage-persisted store. The server has
+  // no localStorage, so it renders 0 — we must do the same on the first client
+  // render or React reports a hydration mismatch. `mounted` flips after the
+  // first paint, at which point the real persisted count is safe to show.
+  const [mounted, setMounted] = useState(false);
+  const displayCount = mounted ? cartCount : 0;
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -55,7 +63,7 @@ export function Header() {
         </button>
 
         {/* Desktop nav — left of brand. */}
-        <nav className="hidden gap-8 text-xs uppercase tracking-widest md:flex">
+        <nav className="hidden gap-8 text-xs font-semibold uppercase tracking-widest md:flex">
           {NAV.map((n) => (
             <Link key={n.href} href={n.href} className="text-bone hover:text-bone-muted">
               {n.label}
@@ -66,20 +74,20 @@ export function Header() {
         {/* Brand — centred, oversized, editorial serif. */}
         <Link
           href="/"
-          aria-label="Vitória — home"
+          aria-label="The Label — home"
           className="absolute left-1/2 -translate-x-1/2 font-display text-2xl tracking-widest md:text-3xl"
         >
-          VITÓRIA
+          THE LABEL
         </Link>
 
         {/* Cart trigger — right side. */}
         <button
           type="button"
           onClick={openDrawer}
-          aria-label={`Open cart, ${cartCount} ${cartCount === 1 ? 'item' : 'items'}`}
-          className="text-xs uppercase tracking-widest text-bone hover:text-bone-muted"
+          aria-label={`Open cart, ${displayCount} ${displayCount === 1 ? 'item' : 'items'}`}
+          className="text-xs font-semibold uppercase tracking-widest text-bone hover:text-bone-muted"
         >
-          Cart {cartCount > 0 && <span className="text-bone-muted">({cartCount})</span>}
+          Cart {displayCount > 0 && <span className="text-bone-muted">({displayCount})</span>}
         </button>
       </Container>
 
@@ -92,7 +100,7 @@ export function Header() {
                 key={n.href}
                 href={n.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-base uppercase tracking-widest text-bone"
+                className="text-base font-semibold uppercase tracking-widest text-bone"
               >
                 {n.label}
               </Link>

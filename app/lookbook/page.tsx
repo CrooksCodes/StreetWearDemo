@@ -4,15 +4,15 @@ import { Container } from '@/components/ui/Container';
 import { LookbookSpread } from '@/components/lookbook/LookbookSpread';
 
 /**
- * Lookbook — magazine-style editorial layout with shoppable hotspots.
+ * Lookbook — magazine-style editorial layout with shoppable spreads.
  *
- * Each spread pairs an oversized image with a list of pinned hotspots.
- * Click a hotspot → opens the QuickView modal for that product.
+ * Each spread pairs an oversized, uncluttered image with a list of the
+ * pieces it features. Click a piece → opens the QuickView modal.
  */
 export const metadata: Metadata = {
   title: 'Lookbook — Spring 2026',
   description:
-    'The Vitória Spring 2026 lookbook. Editorial photography of Drop 04 — shop each piece directly from the spread.',
+    'The Spring 2026 lookbook. Editorial photography of Drop 04 — shop each piece directly from the spread.',
   alternates: { canonical: '/lookbook' },
 };
 
@@ -34,37 +34,37 @@ const SPREADS: Array<{
   reverse?: boolean;
 }> = [
   {
-    imageSrc: `https://images.unsplash.com/photo-1591047139829-d91aecb6caea?${UNSPLASH_SPREAD}`,
-    imageAlt: 'Editorial — onyx mockneck hoodie styled with cargo trouser, concrete background',
+    imageSrc: `https://images.unsplash.com/photo-1615545362149-85299994b09b?${UNSPLASH_SPREAD}`,
+    imageAlt: 'Editorial — onyx heavyweight hoodie styled with cargo trouser, concrete background',
     caption: 'I — Concrete Series',
     index: '01',
     hotspots: [
-      { x: 50, y: 35, productSlug: 'vitoria-mockneck-hoodie-onyx' },
-      { x: 55, y: 75, productSlug: 'vitoria-cargo-pant-stone' },
+      { x: 50, y: 35, productSlug: 'heavyweight-hoodie-onyx' },
+      { x: 55, y: 75, productSlug: 'cargo-pant-stone' },
     ],
   },
   {
-    imageSrc: `https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?${UNSPLASH_SPREAD}`,
+    imageSrc: `https://images.unsplash.com/photo-1635650805000-f31dee3133bc?${UNSPLASH_SPREAD}`,
     imageAlt: 'Editorial — oxblood full-zip hoodie, monochrome studio',
     caption: 'II — Oxblood Study',
     index: '02',
     reverse: true,
-    hotspots: [{ x: 50, y: 45, productSlug: 'vitoria-zip-up-oxblood' }],
+    hotspots: [{ x: 50, y: 45, productSlug: 'zip-up-oxblood' }],
   },
   {
-    imageSrc: `https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?${UNSPLASH_SPREAD}`,
-    imageAlt: 'Editorial — souvenir bomber detail',
+    imageSrc: `https://images.unsplash.com/photo-1689044611227-3267fabaf76a?${UNSPLASH_SPREAD}`,
+    imageAlt: 'Editorial — stone souvenir bomber, full reverse-weave look',
     caption: 'III — Reverse Weave',
     index: '03',
-    hotspots: [{ x: 55, y: 40, productSlug: 'vitoria-bomber-jacket-stone' }],
+    hotspots: [{ x: 55, y: 40, productSlug: 'bomber-jacket-stone' }],
   },
   {
-    imageSrc: `https://images.unsplash.com/photo-1614975059251-992f11792b9f?${UNSPLASH_SPREAD}`,
-    imageAlt: 'Editorial — graphite reflective hoodie at night',
+    imageSrc: `https://images.unsplash.com/photo-1604520164966-8ca929961ebe?${UNSPLASH_SPREAD}`,
+    imageAlt: 'Editorial — graphite reflective hoodie styled after dark',
     caption: 'IV — After Hours',
     index: '04',
     reverse: true,
-    hotspots: [{ x: 48, y: 40, productSlug: 'vitoria-reflective-hoodie-graphite' }],
+    hotspots: [{ x: 48, y: 40, productSlug: 'reflective-hoodie-graphite' }],
   },
 ];
 

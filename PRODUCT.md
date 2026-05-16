@@ -14,7 +14,7 @@ The job to be done: see what's in the chapter, decide if the construction and pr
 
 ## Product Purpose
 
-Vitória is a small-batch streetwear label producing heavyweight, garment-dyed pieces in Portugal in limited "chapters" — never restocked. The storefront's job is not to sell as much as possible. It's to communicate that the work is considered, the construction is real, and the volume is limited.
+The label is a small-batch streetwear label producing heavyweight, garment-dyed pieces in Portugal in limited "chapters" — never restocked. The storefront's job is not to sell as much as possible. It's to communicate that the work is considered, the construction is real, and the volume is limited.
 
 Success looks like: the visitor can tell within 5 seconds of landing that this is a brand operating at a different bar than a default Shopify theme. They feel the same restraint they'd feel walking into a curated retail space — empty walls, oversized type, one piece per spotlight. The site reads as the work of a person, not a marketplace template.
 
@@ -41,16 +41,16 @@ Sites and brands the visual and editorial work should aspire to:
 
 What this should explicitly NOT look like, and why:
 
-- **Default Shopify themes** (Dawn, Debut, Brooklyn) — the entire reason Vitória is rebuilding. Generic spacing, default fonts, broken placeholder social links, "Featured collection" headers. This is the bar we're rising above and the visitor will know immediately.
+- **Default Shopify themes** (Dawn, Debut, Brooklyn) — the entire reason the label is rebuilding. Generic spacing, default fonts, broken placeholder social links, "Featured collection" headers. This is the bar we're rising above and the visitor will know immediately.
 - **Fast-fashion direct-to-consumer sites** (Princess Polly, Fashion Nova, SHEIN) — neon sale banners, urgency timers, three different "Add to Cart" colors competing on one page, popups within seconds of landing.
-- **Streetwear hype sites with maximum motion** (some of the louder Hypebeast advertisers) — auto-playing video everywhere, animated gradients, every element vibrating. Vitória is the opposite end of that spectrum: things hold still on purpose.
+- **Streetwear hype sites with maximum motion** (some of the louder Hypebeast advertisers) — auto-playing video everywhere, animated gradients, every element vibrating. The label is the opposite end of that spectrum: things hold still on purpose.
 - **Bootstrap / Material defaults** — rounded-2xl on everything, drop shadows on every card, blue primary buttons. The genericness of "good enough" UI.
 
 ## Strategic Design Principles
 
 1. **Restraint is the brand.** When in doubt, remove. One accent color. One display typeface. One CTA per section. Negative space is a feature, not unused real estate.
 
-2. **Type does the talking.** The display typeface (Fraunces) carries the editorial weight. The body sans (Inter) carries information. We use weight, scale, and tracking — not color or icons — to set hierarchy.
+2. **Type does the talking.** The display typeface (Archivo, weight 900) carries the streetwear weight. The body sans (Inter) carries information. We use weight, scale, and tracking — not color or icons — to set hierarchy.
 
 3. **Dark is canonical, not optional.** This isn't "with a dark mode toggle." The brand voice is the dark palette. We do not honor `prefers-color-scheme`.
 

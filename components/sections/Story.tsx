@@ -26,8 +26,8 @@ export function Story() {
         <div className="relative aspect-[3/4] overflow-hidden bg-ink-50">
           <motion.div style={{ y }} className="absolute inset-x-0 top-[-15%] bottom-[-15%]">
             <Image
-              src="https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?auto=format&fit=crop&w=1600&q=85"
-              alt="Vitória founder portrait — black and white, atelier"
+              src="https://images.unsplash.com/photo-1582225905616-c3adc77ada6b?auto=format&fit=crop&w=1600&q=85"
+              alt="Founder portrait — black and white, atelier"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
@@ -42,7 +42,7 @@ export function Story() {
           </h2>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-bone-muted">
             <p>
-              Vitória started in 2024 in a 400-square-foot studio in Toronto. One mockneck
+              The label started in 2024 in a 400-square-foot studio in Toronto. One heavyweight
               hoodie, sewn from a 500 GSM French terry sourced from a Portuguese mill that
               had stopped taking new clients in 2019.
             </p>
@@ -52,7 +52,7 @@ export function Story() {
               twelve months from now — and that's the point.
             </p>
             <p className="text-bone">
-              — Founder, Vitória
+              — Founder
             </p>
           </div>
         </div>

@@ -58,9 +58,15 @@ export function CountdownTimer({
   targetDate: string;
   onExpired?: () => void;
 }) {
-  const [time, setTime] = useState<TimeLeft>(getTimeLeft(targetDate));
+  // Start from a static placeholder, not getTimeLeft(): that reads Date.now(),
+  // which differs between the server render and client hydration (the
+  // per-second value drifts), causing a hydration mismatch. The real value is
+  // computed on mount in the effect below, before the first tick.
+  const [time, setTime] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
+    setTime(getTimeLeft(targetDate));
+
     const interval = setInterval(() => {
       const next = getTimeLeft(targetDate);
       setTime(next);

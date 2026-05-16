@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* -----------------------------------------------------------------------------
- * Project Vitória — global styles.
+ * Clothing brand demo — global styles.
  *
  * The app is dark-by-default by design (matches the streetwear aesthetic the
  * client cares about). We do not flip on `prefers-color-scheme` — the brand
@@ -28,9 +28,19 @@ body {
   font-feature-settings: 'ss01', 'cv11';
 }
 
-/* Editorial display headings get tighter optical sizing. */
+/* Body copy carries a touch more weight than the browser default — streetwear
+ * UIs read heavier across the board, not just in the headings. */
+body {
+  font-weight: 500;
+}
+
+/* Display headings render black (900) and all-caps — the heavy grotesque is
+ * the core of the streetwear voice, landing like a screen print rather than
+ * an editorial title. Tracking is left to the type-scale tokens and any
+ * component-level `tracking-*` utility (e.g. the spaced wordmark). */
 .font-display {
-  font-optical-sizing: auto;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 /* Custom scrollbar — dark palette, but only on overflow scrollers we opt in. */

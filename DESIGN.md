@@ -1,5 +1,5 @@
 ---
-name: Vitória
+name: The Label
 description: Heavyweight, garment-dyed streetwear in limited chapters. Editorial dark-palette storefront.
 colors:
   ink: "#0B0908"
@@ -12,19 +12,19 @@ colors:
   oxblood-light: "#8E2330"
 typography:
   display:
-    fontFamily: "Fraunces, ui-serif, Georgia, serif"
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(2rem, 5vw, 3.5rem)"
     fontWeight: 400
     lineHeight: 1
     letterSpacing: "-0.01em"
   display-1:
-    fontFamily: "Fraunces, ui-serif, Georgia, serif"
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(3.5rem, 12vw, 11rem)"
     fontWeight: 400
     lineHeight: 0.9
     letterSpacing: "-0.02em"
   display-2:
-    fontFamily: "Fraunces, ui-serif, Georgia, serif"
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(2.5rem, 8vw, 6rem)"
     fontWeight: 400
     lineHeight: 0.95
@@ -109,7 +109,7 @@ components:
 
 **Creative North Star — *The Quiet Atelier*.** The site reads like an editorial magazine wrapped around a workshop. Type holds still. Imagery is oversized. Negative space does most of the work. Every interaction feels considered, never demonstrative.
 
-The aesthetic philosophy is restraint as luxury signal. Where a fast-fashion site competes on volume — sale banners, urgency timers, animated everything — Vitória competes on intentionality. One CTA per section. One accent color. One display typeface. The visitor should feel that someone made this, not that a theme was bought.
+The aesthetic philosophy is restraint as luxury signal. Where a fast-fashion site competes on volume — sale banners, urgency timers, animated everything — the label competes on intentionality. One CTA per section. One accent color. One display typeface. The visitor should feel that someone made this, not that a theme was bought.
 
 The system is **dark by canon**. Near-black `ink` and warm off-white `bone` are not a "dark mode" — they are the brand. We do not flip on `prefers-color-scheme: light`. The single accent, `oxblood`, is held back to a punctuation role: a low-stock warning, a sale-pricing strikethrough, a single text selection highlight. Restraint with the accent is what makes it land when it appears.
 
@@ -155,25 +155,25 @@ Three families, one accent. Every color is hand-tuned away from sterile defaults
 
 A two-family system. Hierarchy is set by **scale, weight, and tracking** — never by color shifts within the same role.
 
-### Fraunces (display)
+### Archivo (display)
 
-A modern variable serif with editorial soft-and-wonk axes enabled. Used for the brand wordmark, all section headlines, and product names on the PDP. The serif is the brand's voice — when it appears, it should feel oversized and confident.
+A tight, heavy grotesque. Used for the brand wordmark, all section headlines, and product names on the PDP. Display always renders **black (900) and all-caps** — when it appears it should land like a screen print, oversized and confident. The weight *is* the brand's voice.
 
-- **`display-1`** — `clamp(3.5rem → 11rem)`, weight 400, lh 0.9, tracking -0.02em. Hero headline only. Appears once per page.
-- **`display-2`** — `clamp(2.5rem → 6rem)`, weight 400, lh 0.95, tracking -0.02em. Section anchors ("Drop 04", "Editorial", "Sign Up").
-- **`display-3`** — `clamp(2rem → 3.5rem)`, weight 400, lh 1, tracking -0.01em. Sub-section heads, PDP product name.
+- **`display-1`** — `clamp(3rem → 8rem)`, weight 900, lh 0.92, tracking -0.03em. Hero headline only. Appears once per page.
+- **`display-2`** — `clamp(2.5rem → 6rem)`, weight 900, lh 0.92, tracking -0.03em. Section anchors ("Drop 04", "Editorial", "Sign Up").
+- **`display-3`** — `clamp(2rem → 3.5rem)`, weight 900, lh 0.96, tracking -0.02em. Sub-section heads, PDP product name.
 
 ### Inter (body)
 
-A neutral, evenly-spaced grotesque. Used for everything that conveys information rather than identity. OpenType features `ss01` and `cv11` are enabled globally for Inter's slightly more humanist character set (matches the Fraunces warmth).
+A neutral, evenly-spaced grotesque. Used for everything that conveys information rather than identity. Body copy carries a base weight of **500** — streetwear UIs read heavier across the board. OpenType features `ss01` and `cv11` are enabled globally for Inter's slightly more humanist character set.
 
-- **`body`** — 1rem (16px), weight 400, lh 1.6. Long-form paragraphs (Story section, product long-descriptions).
-- **`body-sm`** — 0.875rem (14px), weight 400, lh 1.55. Captions, secondary descriptive text, accordion content.
+- **`body`** — 1rem (16px), weight 500, lh 1.6. Long-form paragraphs (Story section, product long-descriptions).
+- **`body-sm`** — 0.875rem (14px), weight 500, lh 1.55. Captions, secondary descriptive text, accordion content.
 - **`label`** — 0.75rem (12px), weight 500, **letter-spacing 0.2em, uppercase**. The signature "wide-tracked label" treatment used for nav links, button copy, badges, section eyebrows. This is a brand cue and should be used consistently — wherever a small caption-sized item needs to feel ceremonial rather than informational, this is the treatment.
 
 ### Type rules
 
-- Mixing italic Fraunces with the upright is encouraged for emphasis ("Built to wear, *not to display.*"). Avoid italic for whole paragraphs.
+- Display is always uppercase and weight 900 — never set a display heading in a lighter weight or sentence case.
 - Body copy never goes below 14px. If a label needs to be smaller, it must be `label`-tracked uppercase, not body-cased.
 - Never set headlines in the body sans. Never set body in the display serif. The two never trade roles.
 - No more than two type sizes in any single component.
@@ -221,7 +221,7 @@ Bordered (`bone/20`), transparent fill, square corners. The input + adjacent sub
 
 ### Cart drawer line item
 
-80px square thumbnail (4:5 aspect), product name (`label`), variant detail (`body-sm`, `bone-muted`), price (right-aligned `body-sm`). Quantity stepper is a 3-cell row with hairline borders, `−` / number / `+`. Remove is a `body-sm` underlined "Remove" link, never a trash icon — Vitória doesn't use icons for verb actions.
+80px square thumbnail (4:5 aspect), product name (`label`), variant detail (`body-sm`, `bone-muted`), price (right-aligned `body-sm`). Quantity stepper is a 3-cell row with hairline borders, `−` / number / `+`. Remove is a `body-sm` underlined "Remove" link, never a trash icon — the label doesn't use icons for verb actions.
 
 ### Accordion
 
@@ -231,7 +231,7 @@ PDP-only. Single-item-open at a time. Plus/minus indicator on the right (text ch
 
 ### Do
 
-- **Use Fraunces for display, Inter for body. Always.** When a designer reaches for a third typeface, they're solving a problem that should have been solved with weight or scale.
+- **Use Archivo for display, Inter for body. Always.** When a designer reaches for a third typeface, they're solving a problem that should have been solved with weight or scale.
 - **Use the `label` treatment (12px, 0.2em tracking, uppercase) for small caption-sized text wherever the text is structural** — nav, badges, button copy, section eyebrows, footer headers. The consistency of this micro-treatment is half the brand voice.
 - **Tint every neutral toward warm.** `ink` is `#0A0A0A` not `#000`; `bone` is `#F5F2EC` not `#FFFFFF`. The warmth is a signature.
 - **Reserve oxblood for punctuation moments.** When in doubt about whether something should be `oxblood`, the answer is no.

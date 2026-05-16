@@ -8,11 +8,12 @@ import type { Product } from '@/lib/types';
 import { cn, formatPrice } from '@/lib/utils';
 
 /**
- * LookbookSpread — one editorial spread + its shoppable pins.
+ * LookbookSpread — one editorial spread + its shoppable pieces.
  *
- * Hotspots are absolute-positioned dots layered over the image. Clicking
- * a pin opens the QuickView modal for that product so the buyer can add
- * to cart without leaving the lookbook flow.
+ * The image is left clean — no markers layered over the photography.
+ * Shoppable pieces live in the caption column as prominent buttons; each
+ * opens the QuickView modal so the buyer can add to cart without leaving
+ * the lookbook flow.
  */
 interface SpreadData {
   imageSrc: string;
@@ -32,13 +33,10 @@ export function LookbookSpread({
 }) {
   const [openProduct, setOpenProduct] = useState<Product | null>(null);
 
-  // Resolve each hotspot's product slug to the full product record.
-  const pinned = spread.hotspots
-    .map((h) => ({
-      ...h,
-      product: allProducts.find((p) => p.slug === h.productSlug),
-    }))
-    .filter((h): h is { x: number; y: number; productSlug: string; product: Product } => h.product !== undefined);
+  // Resolve each spread's product slugs to the full product records.
+  const pieces = spread.hotspots
+    .map((h) => allProducts.find((p) => p.slug === h.productSlug))
+    .filter((p): p is Product => p !== undefined);
 
   return (
     <>
@@ -64,29 +62,6 @@ export function LookbookSpread({
               quality={90}
               className="object-cover object-top"
             />
-
-            {pinned.map((pin) => (
-              <button
-                key={pin.productSlug}
-                type="button"
-                onClick={() => setOpenProduct(pin.product)}
-                aria-label={`Shop ${pin.product.name}`}
-                style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
-                className="group absolute -translate-x-1/2 -translate-y-1/2"
-              >
-                {/* Outer pulsing ring — pure CSS, no JS animation */}
-                <span className="absolute inset-0 -m-3 animate-ping rounded-full bg-bone/30" aria-hidden="true" />
-                {/* Solid pin */}
-                <span className="relative flex h-5 w-5 items-center justify-center rounded-full bg-bone text-ink ring-2 ring-bone/40 group-hover:bg-bone-muted">
-                  <span className="text-[10px] font-medium">+</span>
-                </span>
-
-                {/* Tooltip — appears on hover with product name + price */}
-                <span className="pointer-events-none absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap bg-ink/95 px-3 py-2 text-xs uppercase tracking-widest opacity-0 backdrop-blur-md transition group-hover:opacity-100">
-                  {pin.product.name} — {formatPrice(pin.product.priceCents)}
-                </span>
-              </button>
-            ))}
           </div>
 
           {/* Caption */}
@@ -99,17 +74,31 @@ export function LookbookSpread({
             <p className="font-display text-7xl text-bone-dim md:text-8xl">{spread.index}</p>
             <p className="mt-2 font-display text-2xl">{spread.caption}</p>
             <p className="mt-6 text-xs uppercase tracking-widest text-bone-muted">
-              {pinned.length} {pinned.length === 1 ? 'piece' : 'pieces'} shown
+              Shop the look — {pieces.length} {pieces.length === 1 ? 'piece' : 'pieces'}
             </p>
-            <ul className="mt-3 space-y-1 text-sm text-bone-muted">
-              {pinned.map((pin) => (
-                <li key={pin.productSlug}>
+            <ul className="mt-4 space-y-3">
+              {pieces.map((product) => (
+                <li key={product.slug}>
                   <button
                     type="button"
-                    onClick={() => setOpenProduct(pin.product)}
-                    className="text-left underline underline-offset-4 hover:text-bone"
+                    onClick={() => setOpenProduct(product)}
+                    aria-label={`Shop ${product.name}`}
+                    className="group flex w-full items-center justify-between gap-4 border border-bone/20 px-5 py-4 text-left transition-colors hover:border-bone hover:bg-bone hover:text-ink"
                   >
-                    {pin.product.name} — {pin.product.tagline}
+                    <span>
+                      <span className="block text-sm font-medium uppercase tracking-widest">
+                        {product.name}
+                      </span>
+                      <span className="mt-1 block text-xs text-bone-muted group-hover:text-ink/70">
+                        {product.tagline}
+                      </span>
+                    </span>
+                    <span className="flex items-center gap-3 whitespace-nowrap text-xs uppercase tracking-widest">
+                      {formatPrice(product.priceCents)}
+                      <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                        →
+                      </span>
+                    </span>
                   </button>
                 </li>
               ))}

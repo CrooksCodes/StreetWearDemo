@@ -23,7 +23,7 @@ import { averageRating } from '@/lib/utils';
  *      Google's rich result rating stars in search.
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://projectvitoria.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thelabel.example.com';
 
 type Params = { slug: string };
 
@@ -80,7 +80,7 @@ export default function ProductPage({ params }: { params: Params }) {
     description: product.description,
     image: product.images.map((i) => i.url),
     sku: product.variants[0]?.sku ?? product.id,
-    brand: { '@type': 'Brand', name: 'Vitória' },
+    brand: { '@type': 'Brand', name: 'The Label' },
     offers: {
       '@type': 'Offer',
       url: `${SITE_URL}/products/${product.slug}`,

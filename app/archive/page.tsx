@@ -4,7 +4,7 @@ import { ChapterSection } from '@/components/archive/ChapterSection';
 import { Container } from '@/components/ui/Container';
 
 /**
- * Archive — curated editorial archive of every past Vitória drop.
+ * Archive — curated editorial archive of every past drop.
  *
  * This page directly counters the Shopify audit finding that past drops are
  * deleted or left as empty collection shells. Here, every chapter stays.
@@ -12,7 +12,7 @@ import { Container } from '@/components/ui/Container';
 export const metadata: Metadata = {
   title: 'Archive',
   description:
-    'Every Vitória chapter, from the first tee to the last zip-up. Past drops preserved as editorial archive — nothing gets deleted.',
+    'Every chapter, from the first tee to the last zip-up. Past drops preserved as editorial archive — nothing gets deleted.',
   alternates: { canonical: '/archive' },
 };
 

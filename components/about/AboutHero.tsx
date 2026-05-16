@@ -11,8 +11,8 @@ export function AboutHero() {
   return (
     <section className="relative min-h-[80svh] w-full overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=2400&q=85"
-        alt="Vitória atelier — fabric bolts and cutting table in warm light"
+        src="https://images.unsplash.com/photo-1600950207944-0d63e8edbc3f?auto=format&fit=crop&w=2400&q=85"
+        alt="The atelier — fabric bolts and cutting table in warm light"
         fill
         sizes="100vw"
         priority

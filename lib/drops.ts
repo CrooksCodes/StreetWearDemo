@@ -18,9 +18,9 @@ export const upcomingDrop: UpcomingDrop = {
   tagline: 'Fall 2026 — The next chapter.',
   dropDate: '2026-09-15T12:00:00-04:00',
   teaserImages: [
-    teaserImg('photo-1591047139829-d91aecb6caea', 'Teaser 01 — silhouette of outerwear piece'),
-    teaserImg('photo-1551489186-cf8726f514f8', 'Teaser 02 — fabric texture close-up'),
-    teaserImg('photo-1620799140408-edc6dcb6d633', 'Teaser 03 — hardware detail'),
+    teaserImg('photo-1632682582909-2b3a2581eef7', 'Teaser 01 — silhouette of outerwear piece'),
+    teaserImg('photo-1633292750937-120a94f5c2bb', 'Teaser 02 — fabric texture close-up'),
+    teaserImg('photo-1685328403732-64be6bb9d112', 'Teaser 03 — hardware detail'),
   ],
   teaserCopy:
     'Three new silhouettes. One new fabric. The heaviest chapter we\'ve ever cut. Sign up to be first in line.',

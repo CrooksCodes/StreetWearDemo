@@ -7,7 +7,7 @@ import { products } from '@/lib/products';
  * Walks the product catalogue programmatically — when products are added in
  * Supabase, the sitemap regenerates on the next build with no manual upkeep.
  */
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://projectvitoria.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thelabel.example.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -20,6 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/journal`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${SITE_URL}/about`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/drops/drop-05`, lastModified, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${SITE_URL}/shipping`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/size-guide`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/contact`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/faq`, lastModified, changeFrequency: 'monthly', priority: 0.3 },
   ];
 
   const productRoutes: MetadataRoute.Sitemap = products.map((p) => ({

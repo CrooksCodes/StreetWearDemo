@@ -15,6 +15,9 @@ export interface FilterState {
   colors: string[];
   /** null == no upper bound. */
   maxPriceCents: number | null;
+  /** When true, restrict to products flagged as the latest drop. Set via
+   *  the /shop?filter=latest entry point — no sidebar control. */
+  latestOnly: boolean;
 }
 
 export const INITIAL_FILTERS: FilterState = {
@@ -22,6 +25,7 @@ export const INITIAL_FILTERS: FilterState = {
   sizes: [],
   colors: [],
   maxPriceCents: null,
+  latestOnly: false,
 };
 
 const CATEGORIES: Category[] = ['hoodies', 'tees', 'outerwear', 'bottoms', 'accessories'];
@@ -52,7 +56,8 @@ export function ShopFilters({
     filters.categories.length +
       filters.sizes.length +
       filters.colors.length +
-      (filters.maxPriceCents === null ? 0 : 1) >
+      (filters.maxPriceCents === null ? 0 : 1) +
+      (filters.latestOnly ? 1 : 0) >
     0;
 
   return (

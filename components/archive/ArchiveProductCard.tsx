@@ -1,17 +1,44 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { Product } from '@/lib/types';
-import { formatPrice } from '@/lib/utils';
+import { cn, formatPrice } from '@/lib/utils';
 
 /**
  * ArchiveProductCard — simplified product card for sold-out archive items.
  *
  * Grayscale image, "SOLD OUT" badge, specs row. No quick-add, no hover swap —
  * these items can't be purchased, they exist to show the brand's history.
+ *
+ * Desktop un-greys the image on hover. Phones have no hover, so an
+ * IntersectionObserver un-greys the card automatically as it scrolls into
+ * view — the reveal applies only below `md` (`max-md:`), leaving the desktop
+ * hover interaction untouched.
  */
 export function ArchiveProductCard({ product }: { product: Product }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '-15% 0px' },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <article className="group relative flex flex-col">
-      <div className="relative aspect-[4/5] overflow-hidden bg-ink-50">
+      <div ref={ref} className="relative aspect-[4/5] overflow-hidden bg-ink-50">
         {/* SOLD OUT badge */}
         <span className="absolute left-3 top-3 z-10 inline-block bg-ink/80 px-2 py-1 text-[10px] font-medium uppercase tracking-widest text-bone-muted backdrop-blur-sm">
           Sold Out
@@ -23,7 +50,10 @@ export function ArchiveProductCard({ product }: { product: Product }) {
             alt={product.images[0].alt}
             fill
             sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-            className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+            className={cn(
+              'object-cover grayscale transition-all duration-500 group-hover:grayscale-0',
+              inView && 'max-md:grayscale-0',
+            )}
           />
         )}
       </div>

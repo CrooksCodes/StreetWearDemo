@@ -1,4 +1,4 @@
-// Project Vitória — Prisma schema.
+// Clothing brand demo — Prisma schema.
 //
 // The demo currently runs on the mock catalogue in /lib/products.ts. This schema
 // is the production-ready target: dropping it onto a Supabase Postgres instance

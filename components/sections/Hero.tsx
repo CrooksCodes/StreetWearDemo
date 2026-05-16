@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
+import { Reveal } from '@/components/ui/Reveal';
 
 /**
  * Hero — full-bleed landing section. Single CTA, oversized type.
@@ -17,8 +18,8 @@ export function Hero() {
     <section className="relative min-h-[100svh] w-full overflow-hidden">
       {/* Hero image — Unsplash placeholder; swap for client product photography. */}
       <Image
-        src="https://images.unsplash.com/photo-1619603364904-c0498317e145?auto=format&fit=crop&w=2400&q=85"
-        alt="Vitória heavyweight streetwear editorial — model in mockneck hoodie against concrete"
+        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=2400&q=85"
+        alt="Heavyweight streetwear editorial — model in heavyweight hoodie against concrete"
         fill
         sizes="100vw"
         priority
@@ -32,7 +33,9 @@ export function Hero() {
           viewports — without it, the transparent header sits directly on
           top of "Built to" when scrolled to top. */}
       <Container width="wide" className="relative flex min-h-[100svh] flex-col justify-end pb-20 pt-32 md:pb-32 md:pt-40">
-        <div className="max-w-3xl">
+        {/* Hero copy fades up on load — Reveal's whileInView fires immediately
+            since the block is already in view, giving a clean arrival. */}
+        <Reveal className="max-w-3xl" y={32}>
           <p className="mb-6 text-xs uppercase tracking-widest text-bone-muted">
             Drop 04 — Spring 2026
           </p>
@@ -48,10 +51,12 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-3 bg-bone px-8 py-4 text-xs uppercase tracking-widest text-ink transition-colors hover:bg-bone-muted"
+              className="group inline-flex items-center gap-3 bg-bone px-8 py-4 text-xs uppercase tracking-widest text-ink transition-colors hover:bg-bone-muted"
             >
               Shop Drop 04
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
             </Link>
             <Link
               href="/lookbook"
@@ -60,8 +65,17 @@ export function Hero() {
               View Lookbook
             </Link>
           </div>
-        </div>
+        </Reveal>
       </Container>
+
+      {/* Scroll cue — a filled segment running down a hairline track. Desktop
+          only; on touch the scroll affordance is already obvious. */}
+      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex">
+        <span className="text-[10px] uppercase tracking-widest text-bone-muted">Scroll</span>
+        <span className="relative block h-10 w-px overflow-hidden bg-bone/15">
+          <span className="absolute inset-x-0 top-0 block h-1/2 bg-bone animate-scroll-cue" />
+        </span>
+      </div>
     </section>
   );
 }

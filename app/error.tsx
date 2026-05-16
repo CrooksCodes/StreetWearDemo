@@ -24,7 +24,7 @@ export default function GlobalError({
   useEffect(() => {
     // In production this is where we'd ship to Sentry / Logtail. For the
     // demo we just log; the digest is the redacted server-side error id.
-    console.error('Vitória — render error:', error);
+    console.error('Render error:', error);
   }, [error]);
 
   return (
