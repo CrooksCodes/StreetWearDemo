@@ -21,7 +21,7 @@ export const articles: Article[] = [
     excerpt:
       'Most hoodies are 280–320 GSM. We start at 420 and peak at 500. Here\'s what happens when you double the weight of a French terry — and why it changes how the garment moves, drapes, and ages.',
     category: 'Material',
-    heroImage: heroImg('photo-1558452919-08ae4aea8e29', 'Close-up of heavyweight 500 GSM French terry fabric texture'),
+    heroImage: heroImg('photo-1685328403732-64be6bb9d112', 'Heavyweight French terry hoodie in stone, cropped to the chest and cuffs'),
     readTime: 7,
     publishedAt: '2026-04-15',
     isFeatured: true,
