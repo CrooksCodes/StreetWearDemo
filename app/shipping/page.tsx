@@ -6,8 +6,8 @@ import { Container } from '@/components/ui/Container';
 /**
  * Shipping & Returns — support / policy page.
  *
- * Linked from the footer Support column. Static content for the demo;
- * real policy copy gets dropped in before the pitch.
+ * Linked from the footer Support column. Static placeholder copy;
+ * real policy text goes here once the store is live.
  */
 export const metadata: Metadata = {
   title: 'Shipping & Returns',

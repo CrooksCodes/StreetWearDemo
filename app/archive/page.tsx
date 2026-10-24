@@ -6,8 +6,8 @@ import { Container } from '@/components/ui/Container';
 /**
  * Archive — curated editorial archive of every past drop.
  *
- * This page directly counters the Shopify audit finding that past drops are
- * deleted or left as empty collection shells. Here, every chapter stays.
+ * Most stores delete past drops or leave them as empty collection shells.
+ * Here, every chapter stays.
  */
 export const metadata: Metadata = {
   title: 'Archive',

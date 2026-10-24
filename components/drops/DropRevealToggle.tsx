@@ -3,9 +3,8 @@
 /**
  * DropRevealToggle — demo-only button that triggers the teaser reveal.
  *
- * In the pitch walkthrough, Jeremy clicks this to show the blur-clear
- * animation. In production this would be triggered by the countdown
- * reaching zero.
+ * Click it to preview the blur-clear animation. In production this would
+ * be triggered by the countdown reaching zero.
  */
 export function DropRevealToggle({
   revealed,

@@ -5,10 +5,8 @@ import { FooterNewsletterForm } from './FooterNewsletterForm';
 /**
  * Footer — brand footer.
  *
- * NOTE FOR THE PITCH: every social link below is wired to a real URL with
- * proper rel/target attributes. The current Shopify site ships with
- * the default theme's broken placeholder social links — pointing this out
- * is part of the value Jeremy is selling.
+ * Every social link below is wired with proper rel/target attributes. The
+ * URLs are placeholders until the brand has real accounts.
  */
 const SOCIAL = [
   { label: 'Instagram', href: 'https://www.instagram.com/' },

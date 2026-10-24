@@ -11,7 +11,7 @@ import { DropRevealToggle } from '@/components/drops/DropRevealToggle';
 import { upcomingDrop } from '@/lib/drops';
 
 /**
- * Drop 05 page — the "wow" feature for the pitch.
+ * Drop 05 page — countdown and teaser reveal for the upcoming drop.
  *
  * Centered layout: label → display title → teaser copy → countdown →
  * demo reveal button → notify form → teaser gallery. On reveal, blur

@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import type { Product, Category, Size } from '@/lib/types';
+import type { Product } from '@/lib/types';
 import { ProductCard } from '@/components/product/ProductCard';
 import { ShopFilters, type FilterState, INITIAL_FILTERS } from './ShopFilters';
 import { cn } from '@/lib/utils';
@@ -157,6 +157,3 @@ export function ShopGrid({
     </div>
   );
 }
-
-// Re-export types used by callers.
-export type { Category, Size };

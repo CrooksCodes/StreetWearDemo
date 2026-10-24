@@ -23,8 +23,8 @@ import { Reveal } from '@/components/ui/Reveal';
  *   &crop=faces,entropy — keep the subject centered
  *   &q=90          — quality, sharp without bloating the file
  *
- * Real product photography (already shot portrait) replaces all of this
- * for the pitch — these are placeholders, not the final treatment.
+ * Real product photography (shot portrait) replaces all of this —
+ * these are placeholders, not the final treatment.
  */
 const UNSPLASH_PORTRAIT = 'auto=format&fit=crop&crop=faces,entropy&w=1800&h=2400&q=90';
 

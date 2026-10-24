@@ -2,7 +2,7 @@ import { Marquee } from '@/components/ui/Marquee';
 
 /**
  * PressMarquee — "as worn by / press" placeholder strip.
- * Replace these names with the brand's actual press wins before the pitch.
+ * Replace these names with actual press wins if any ever land.
  */
 const PRESS = [
   'HIGHSNOBIETY',
