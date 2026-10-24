@@ -9,10 +9,10 @@ import type { CartLine, Product, Variant } from '@/lib/types';
  *
  * Why Zustand: lightweight, no provider boilerplate, plays well with Next.js
  * server components (only the components that touch state mark themselves
- * "use client"). Per Jeremy's stack rules, this is the only state library used.
+ * "use client"). This is the only state library used.
  *
  * Why persisted: e-commerce buyers expect their cart to survive a refresh.
- * We persist to localStorage so the experience matches Shopify's default.
+ * We persist to localStorage so a refresh doesn't empty the cart.
  */
 
 interface CartState {

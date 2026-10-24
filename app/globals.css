@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 /* -----------------------------------------------------------------------------
- * Clothing brand demo — global styles.
+ * The Label — global styles.
  *
- * The app is dark-by-default by design (matches the streetwear aesthetic the
- * client cares about). We do not flip on `prefers-color-scheme` — the brand
+ * The app is dark-by-default by design (matches the streetwear aesthetic). We do not flip on `prefers-color-scheme` — the brand
  * voice is the dark palette, full stop.
  * ---------------------------------------------------------------------------*/
 

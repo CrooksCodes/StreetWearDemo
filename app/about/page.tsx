@@ -9,9 +9,8 @@ import { Values } from '@/components/about/Values';
 /**
  * About — brand narrative, founder story, timeline, and values.
  *
- * Counters audit finding #7: the current Shopify site has no brand narrative,
- * no founder story, and no about page. This page gets parallax, editorial
- * layout, and a timeline — things Shopify's plain-text "about" pages can't do.
+ * Parallax hero, editorial layout, and a timeline — the brand narrative
+ * most stores reduce to a plain-text about page.
  */
 export const metadata: Metadata = {
   title: 'About',

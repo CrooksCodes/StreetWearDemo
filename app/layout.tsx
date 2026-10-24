@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------
- * Root layout — clothing brand demo.
+ * Root layout — The Label storefront.
  *
- * SEO architecture (walk-through for the pitch):
+ * SEO architecture:
  *
  * 1. `metadata` export below sets sitewide defaults (title, description, OG/Twitter
  *    cards, canonical URL via metadataBase). Every individual page file overrides
@@ -115,8 +115,8 @@ export const viewport: Viewport = {
 };
 
 // Organization-level JSON-LD. Lives at /, but renders sitewide so every page
-// reinforces the brand knowledge graph signal. When the client provides real
-// social URLs, drop them into `sameAs` below.
+// reinforces the brand knowledge graph signal. Drop real social URLs into
+// `sameAs` below once they exist.
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',

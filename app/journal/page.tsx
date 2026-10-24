@@ -7,9 +7,8 @@ import { Container } from '@/components/ui/Container';
 /**
  * Journal — editorial content hub.
  *
- * Counters audit finding #6: the current Shopify site has no blog, no content
- * engine, and /blog returns a 404. This page demonstrates magazine-quality
- * editorial layout vs Shopify's generic blog template.
+ * Magazine-style editorial layout: one featured story as a full-width hero,
+ * the rest in a grid below.
  */
 export const metadata: Metadata = {
   title: 'Journal',

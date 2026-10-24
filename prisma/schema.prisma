@@ -1,6 +1,6 @@
-// Clothing brand demo — Prisma schema.
+// The Label — Prisma schema.
 //
-// The demo currently runs on the mock catalogue in /lib/products.ts. This schema
+// The app currently runs on the mock catalogue in /lib/products.ts. This schema
 // is the production-ready target: dropping it onto a Supabase Postgres instance
 // (DATABASE_URL points at Supabase's pooler) wires the app to real data without
 // rewriting the component layer — the types in /lib/types.ts mirror these models.
@@ -9,8 +9,8 @@
 //   npx prisma generate         # generate the Prisma client
 //   npx prisma migrate dev      # create the database tables
 //
-// Walk-through note for the pitch: even though the demo uses mock data, this
-// file proves the storefront is architected to graduate to a real backend.
+// Even though the app currently uses mock data, this file is the path to a
+// real backend.
 
 generator client {
   provider = "prisma-client-js"

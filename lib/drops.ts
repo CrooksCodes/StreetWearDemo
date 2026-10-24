@@ -4,7 +4,7 @@ import type { UpcomingDrop } from './types';
  * Upcoming drop data for the countdown/reveal mechanic.
  *
  * The drop date is set to September 2026 — far enough in the future
- * that the countdown timer always shows positive values during the pitch.
+ * that the countdown timer always shows positive values.
  */
 
 const teaserImg = (id: string, alt: string) => ({

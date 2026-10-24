@@ -16,7 +16,7 @@ import { Reveal } from '@/components/ui/Reveal';
 export function Hero() {
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden">
-      {/* Hero image — Unsplash placeholder; swap for client product photography. */}
+      {/* Hero image — Unsplash placeholder; swap for real product photography. */}
       <Image
         src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=2400&q=85"
         alt="Heavyweight streetwear editorial — model in heavyweight hoodie against concrete"

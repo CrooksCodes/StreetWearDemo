@@ -3,19 +3,19 @@ import type { Product, Chapter } from './types';
 /**
  * Mock product catalogue.
  *
- * In the demo, this file IS the database. When the client greenlights the build,
- * we move these records into Supabase via the schema in /prisma/schema.prisma
+ * For now, this file IS the database. When the site moves to a real backend,
+ * these records go into Supabase via the schema in /prisma/schema.prisma
  * and replace this file's exports with server-side queries — the component
  * layer does not need to change.
  *
  * Image URLs are Unsplash placeholders pulled from streetwear editorial shoots.
  * Every product image references a distinct photo — no stock shot is reused
  * across the catalogue. These get swapped for real product photography
- * before the pitch.
+ * once there is some.
  */
 
 // Unsplash query-driven URLs — picked to read as streetwear editorial,
-// not actual product fidelity. The `?w=1200&q=80` params keep payloads tight.
+// not actual product fidelity. The `?w=1400&q=80` params keep payloads tight.
 const img = (id: string, alt: string) => ({
   url: `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1400&q=80`,
   alt,

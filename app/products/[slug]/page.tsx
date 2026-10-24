@@ -12,7 +12,7 @@ import { averageRating } from '@/lib/utils';
 /**
  * Product detail page (PDP) — /products/[slug].
  *
- * SEO highlights for the pitch walk-through:
+ * SEO highlights:
  *   1. `generateMetadata` produces page-specific OG/Twitter tags from product
  *      data (title, description, image). Each PDP becomes its own SERP card.
  *   2. `generateStaticParams` pre-renders every PDP at build time (static
