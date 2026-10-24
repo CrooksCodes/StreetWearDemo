@@ -16,6 +16,19 @@ import { cn } from '@/lib/utils';
  */
 export type SortKey = 'newest' | 'priceAsc' | 'priceDesc';
 
+// Rendered card width in this grid, so next/image picks a sensibly sized
+// candidate instead of the largest srcset entry:
+//   ≥1536px — Container caps at 1536 (−80 padding, −240 sidebar, −48 gap,
+//             −48 column gaps) / 3 ≈ 374px.
+//   ≥768px  — 3 columns beside the 240px sidebar.
+//   <768px  — 2 columns, sidebar collapsed.
+const SHOP_CARD_SIZES =
+  '(min-width: 1536px) 374px, (min-width: 768px) calc((100vw - 368px) / 3), 50vw';
+
+// Cards in the first desktop row (3 columns) get `priority` so their image is
+// preloaded with the page; everything below stays lazy and loads on scroll.
+const FIRST_ROW_COUNT = 3;
+
 export function ShopGrid({
   products,
   initialFilters = INITIAL_FILTERS,
@@ -129,8 +142,13 @@ export function ShopGrid({
           </p>
         ) : (
           <div className="grid grid-cols-2 gap-x-4 gap-y-12 md:grid-cols-3 md:gap-x-6">
-            {filtered.map((p) => (
-              <ProductCard key={p.id} product={p} />
+            {filtered.map((p, i) => (
+              <ProductCard
+                key={p.id}
+                product={p}
+                priority={i < FIRST_ROW_COUNT}
+                sizes={SHOP_CARD_SIZES}
+              />
             ))}
           </div>
         )}

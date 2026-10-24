@@ -17,17 +17,47 @@ import { QuickView } from './QuickView';
  * Touch devices won't get the swap (no hover state) which is fine — the
  * image gallery on the PDP is where they'll see all angles.
  *
+ * Image loading: only the primary image is in the DOM on first paint. The
+ * hover image is mounted on the first mouseenter — an `opacity: 0` <img> is
+ * still fetched by the browser (lazy loading only skips elements without a
+ * layout box), so mounting it up front doubled the image requests on every
+ * grid. The primary stays visible until the hover image has actually loaded,
+ * so the first swap fades rather than flashing the empty background.
+ *
  * Quick-add: clicks the first in-stock variant. For products with multiple
  * sizes/colors, this opens the QuickView modal to require an explicit choice
  * — adding "M" to cart by default would frustrate the buyer.
  */
-export function ProductCard({ product }: { product: Product }) {
+
+// Default matches the homepage Drop grid (2 cols → 4 cols, no sidebar).
+// Grids with a different column layout pass their own `sizes`.
+const DEFAULT_SIZES = '(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw';
+
+export function ProductCard({
+  product,
+  priority = false,
+  sizes = DEFAULT_SIZES,
+}: {
+  product: Product;
+  /** Above-the-fold cards: preloads the primary image and skips lazy loading.
+   *  Pass only for the first visible row — every priority image competes
+   *  with the page's critical resources. */
+  priority?: boolean;
+  /** `sizes` attribute for the primary/hover images — should describe the
+   *  card's rendered width in the grid it's placed in. */
+  sizes?: string;
+}) {
   const [hovered, setHovered] = useState(false);
+  const [hoverMounted, setHoverMounted] = useState(false);
+  const [hoverLoaded, setHoverLoaded] = useState(false);
   const [quickViewOpen, setQuickViewOpen] = useState(false);
   const addLine = useCart((s) => s.addLine);
 
   const primaryImage = product.images[0];
-  const hoverImage = product.images[1] ?? primaryImage;
+  // No fallback to the primary image here — rendering the same image twice
+  // just doubles the request for single-image products.
+  const hoverImage = product.images[1];
+  const showHover = hovered && hoverLoaded;
 
   // Stock-aware UI flags. We compute these once on render so the card's
   // badge logic is centralised here — child components don't re-derive it.
@@ -53,7 +83,10 @@ export function ProductCard({ product }: { product: Product }) {
     <>
       <article
         className="group relative flex flex-col"
-        onMouseEnter={() => setHovered(true)}
+        onMouseEnter={() => {
+          setHovered(true);
+          setHoverMounted(true);
+        }}
         onMouseLeave={() => setHovered(false)}
       >
         {/* Badge stack — top-left over imagery. Stacks if multiple apply. */}
@@ -74,19 +107,21 @@ export function ProductCard({ product }: { product: Product }) {
               src={primaryImage.url}
               alt={primaryImage.alt}
               fill
-              sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw"
+              sizes={sizes}
+              priority={priority}
               className="object-cover transition-opacity duration-500"
-              style={{ opacity: hovered ? 0 : 1 }}
+              style={{ opacity: showHover ? 0 : 1 }}
             />
           )}
-          {hoverImage && (
+          {hoverImage && hoverMounted && (
             <Image
               src={hoverImage.url}
               alt={hoverImage.alt}
               fill
-              sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw"
+              sizes={sizes}
+              onLoad={() => setHoverLoaded(true)}
               className="object-cover transition-opacity duration-500"
-              style={{ opacity: hovered ? 1 : 0 }}
+              style={{ opacity: showHover ? 1 : 0 }}
             />
           )}
 
